@@ -15,7 +15,6 @@ public class MCSVBukkitUtils {
         json.put("locale", player.getLocale().toString());
         json.put("exp", getPlayerLevelJSON(player));
         json.put("location", getLocationJSON(player.getLocation()));
-        json.put("ping", player.getPing());
         json.put("health", player.getHealth());
         json.put("isOp", player.isOp());
 

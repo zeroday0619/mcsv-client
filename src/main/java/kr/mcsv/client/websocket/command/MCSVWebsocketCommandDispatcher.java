@@ -39,16 +39,6 @@ public class MCSVWebsocketCommandDispatcher implements ConsoleCommandSender {
     }
 
     @Override
-    public void sendMessage(UUID sender, String message) {
-        this.sendMessage(message);
-    }
-
-    @Override
-    public void sendMessage(UUID sender, String[] messages) {
-        this.sendMessage(messages);
-    }
-
-    @Override
     public Server getServer() {
         return Bukkit.getServer();
     }
@@ -161,11 +151,6 @@ public class MCSVWebsocketCommandDispatcher implements ConsoleCommandSender {
     public void sendRawMessage(String message) {
         this.sendMessage(message);
 
-    }
-
-    @Override
-    public void sendRawMessage(UUID sender, String message) {
-        this.sendMessage(message);
     }
     
 }
