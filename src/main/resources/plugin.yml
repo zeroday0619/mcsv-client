@@ -1,7 +1,7 @@
 name: MCSV-Client
 version: ${project.version}
 main: kr.mcsv.client.Main
-api-version: 1.16
+api-version: 1.12
 prefix: MCSV.KR
 description: MCSV.KR Client
 website: https://mcsv.kr
