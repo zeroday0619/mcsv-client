@@ -12,6 +12,7 @@ on:
       - "pom.xml"
       - ".github/workflows/*"
   pull_request:
+    branches:
       - "legacy/**"
     paths:
       - "src/**/*.java"
