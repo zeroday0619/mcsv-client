@@ -10,6 +10,7 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.bukkit.Bukkit;
+import org.bukkit.Server;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
 import org.json.simple.JSONArray;
@@ -79,6 +80,9 @@ public class MCSVWebsocketHandler {
             response.put("data", Main.version);
         } else if (action == MCSVWebsocketActions.GET_SERVER_METADATA) {
             response.put("data", MCSVJSONUtils.createMetadataJSON());
+        } else if (action == MCSVWebsocketActions.GET_BUKKIT_INFO) {
+            JSONObject bukkitInfo = MCSVBukkitUtils.getBukkitInfoJSON();
+            response.put("data", bukkitInfo);
         } else {
             response.put("error", "invalid_action");
         }
