@@ -21,13 +21,27 @@ public class MCSVWebsocketSession {
     int retryTimeout = 60;
     static int retryTimeoutMax = 60;
 
+    boolean preventReconnect = false;
+
     private MCSVServer server;
     public MCSVWebsocketSession(MCSVServer server) {
         this.server = server;
     }
 
+    public void setPreventReconnect(boolean preventReconnect) {
+        this.preventReconnect = preventReconnect;
+    }
+
     public WebSocket connect() throws IOException, InvalidRefreshTokenException, WebSocketException {
         if (this.isConnected()) return null;
+        
+        // if prevent reconnect is activated, do not reconnect.
+        if (this.ws != null && !this.isConnected()) {
+            if (this.preventReconnect) {
+                return null;
+            }
+        }
+
         WebSocket ws;
 
         WebSocketFactory factory = new WebSocketFactory();
@@ -57,6 +71,7 @@ public class MCSVWebsocketSession {
 
     public void disconnect() {
         ws.disconnect();
+        this.preventReconnect = true;
     }
 
     public boolean isConnected() {
