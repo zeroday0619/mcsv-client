@@ -16,7 +16,6 @@ public class MCSVJSONUtils {
         JSONObject exception = new JSONObject();
         exception.put("message", e.getMessage());
         exception.put("localizedMessage", e.getLocalizedMessage());
-        exception.put("cause", e.getCause());
 
         StringWriter sw = new StringWriter();
         PrintWriter pw = new PrintWriter(sw);

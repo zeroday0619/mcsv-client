@@ -55,6 +55,11 @@ public class MCSVWebsocketListener extends WebSocketAdapter {
         } catch (ParseException e) {
             return;
         } catch (Exception e) {
+            Bukkit.getLogger().severe(
+                MCSVLogTemplate.error("Websocket 정보 처리 중 오류가 발생했습니다. 아래 스택트레이스를 참고하세요.")
+            );
+            e.printStackTrace();
+
             if (to != null) {
                 JSONObject json = new JSONObject();
                 json.put("to", to);
